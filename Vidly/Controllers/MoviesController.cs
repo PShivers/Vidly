@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -24,8 +25,20 @@ namespace Vidly.Controllers
         public ViewResult Random()
         {
             var movie = new Movie() {Name = "Shrek"};
-            
-            return View(movie);
+
+            var customers = new List<Customers>
+            {
+                new Customers {Name = "Customer 1", Id = 1},
+                new Customers {Name = "Customer 2", Id = 2}
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers,
+            };
+
+            return View(viewModel);
         }
 
         //todo: figure out how mosh used resharper to rename the parameter and any references to it. he said F2 but it didn't work for me
