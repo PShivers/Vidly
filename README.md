@@ -5,3 +5,4 @@ to have a better understanding of some basics that have been overlooked/neglecte
 
 Mosh has a great way of teaching, and only a couple hours in I have gotten several answers to standing questions I have had.
 
+I plan on using this project to learn about automated testing as well.  
