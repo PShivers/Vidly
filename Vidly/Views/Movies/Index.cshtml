@@ -1,0 +1,17 @@
+﻿@model List<Vidly.Models.Movie>
+
+@{
+    ViewBag.Title = "Movie Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+<ul class="list-group">
+    @foreach (var movie in Model)
+    {
+        @Html.ActionLink(movie.Name, "Details", "Movies", new { movieId = $"{movie.Id}" }, new { @class = "list-group-item list-group-item-action" })
+    }
+</ul>
+
+

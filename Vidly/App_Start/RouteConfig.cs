@@ -32,11 +32,17 @@ namespace Vidly
                 defaults: new { controller = "Customers", action = "Index", }
             );
 
-            routes.MapRoute(
-                name: "Movies",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Movies", action = "Detail", id = UrlParameter.Optional }
-            );
+           routes.MapRoute(
+               name: "MovieDetails",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "Movies", action = "Details", id = UrlParameter.Optional }
+           );
+
+           routes.MapRoute(
+               name: "Movies",
+               url: "{controller}/{action}",
+               defaults: new { controller = "Movies", action = "Index", id = UrlParameter.Optional }
+           );
         }
     }
 }

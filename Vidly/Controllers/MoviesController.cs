@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
@@ -11,13 +10,33 @@ namespace Vidly.Controllers
         // GET: Movies
         public ActionResult Index(int? pageIndex, string sortBy)
         {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
+            //if (!pageIndex.HasValue)
+            //    pageIndex = 1;
 
-            if (String.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
+            //if (String.IsNullOrWhiteSpace(sortBy))
+            //    sortBy = "Name";
 
-            return Content(string.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+            var movies = new List<Movie>
+            {
+                new Movie() {Name = "Shrek", Id = 1},
+                new Movie() {Name = "Shrek 2", Id = 2},
+                new Movie() {Name = "Shrek the Third", Id = 3},
+            };
+
+            return View(movies);
+        }
+        public ActionResult Details(int? movieId)
+        {
+            var movies = new List<Movie>
+            {
+                new Movie() {Name = "Shrek", Id = 1},
+                new Movie() {Name = "Shrek 2", Id = 2},
+                new Movie() {Name = "Shrek the Third", Id = 3},
+            };
+
+            var movie = movies.Find(c => c.Id == movieId);
+
+            return View(movie);
         }
 
         public ViewResult Random()
